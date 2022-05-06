@@ -1,6 +1,9 @@
 package com.Model;
 
-public class Produto {
+import java.io.Serializable;
+
+public class Produto implements Serializable {
+    private static final long serialVersionUID = 1L;
 
 	private int id_produto;
 	private String nome;
