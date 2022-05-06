@@ -64,6 +64,44 @@ public class ProdutoDAO {
     
     ///////////////////////////////////////////////////////////////////////
     
+    @SuppressWarnings("unused")
+	public void findbyTecnology(String tecnologia){
+        String procura = "select * from tecnologia where tecnologia = ?;";
+
+        try{
+            PreparedStatement statement = connection.prepareStatement(procura);
+            statement.setString(2, tecnologia);
+            ResultSet proc = statement.executeQuery();
+            statement.close();
+
+        }catch (SQLException exception){
+            System.out.println("Erro na procura dos dados");
+            System.out.println(exception);
+            throw  new RuntimeException(exception);
+        }
+    }
+    
+    ///////////////////////////////////////////////////////////////////////
+    
+    @SuppressWarnings("unused")
+    public void findbyMarket(String mercado){
+        String procura = "select * from mercado where mercado = ?;";
+
+        try{
+            PreparedStatement statement = connection.prepareStatement(procura);
+            statement.setString(2, mercado);
+            ResultSet proc = statement.executeQuery();
+            statement.close();
+
+        }catch (SQLException exception){
+            System.out.println("Erro na procura dos dados");
+            System.out.println(exception);
+            throw  new RuntimeException(exception);
+        }
+    }
+    
+    ///////////////////////////////////////////////////////////////////////
+    
     public void listProducts() {
         String sql = "SELECT * FROM produtos";
 
@@ -97,7 +135,7 @@ public class ProdutoDAO {
             statement.setInt(5, p.getId_produto());
             statement.execute();
             statement.close();
-            System.out.println("Register updated sucessful");
+            System.out.println("Register Updated Sucessful");
 
         } catch (SQLException exception){
             System.out.println("Error in atualization of dates");
@@ -114,7 +152,7 @@ public class ProdutoDAO {
             statement.setInt(1, id);
             statement.execute();
             statement.close();
-            System.out.println("Line deleted sucessful");
+            System.out.println("Line Deleted Sucessful");
 
         }catch (SQLException exception){
             System.out.println("Error in inclusion of dates");
