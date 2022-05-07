@@ -1,0 +1,11 @@
+Definição:
+Um "UserPrincipal" é uma representação abstrata de
+uma identidade. Seu nome normalmente é o mesmo do
+usuário ou o da conta que ele representa. Objetos
+principais de usuário podem ser retornados por 
+implementações que fornecem acesso a atributos
+relacionados à identidade.
+
+Função:
+Obtém ou define o nome UPN associado a essa entidade
+(Herdado da classe "Principal").
